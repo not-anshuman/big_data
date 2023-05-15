@@ -1,7 +1,8 @@
 import tweepy
 import json
 
-bearer_token = "ADD TOKEN HERE"
+bearer_token = "AAAAAAAAAAAAAAAAAAAAADFvdAEAAAAAxPnJv7Me0GQYLWsePtBmHPyB1sI%3Dk10HZD9DHLTAazMR8dc2J2H5KlI9SlV1YmkZAyUxhFKn2SrIze"
+
 
 class CustomStreamingClient(tweepy.StreamingClient):
     def on_tweet(self, tweet):
@@ -10,8 +11,9 @@ class CustomStreamingClient(tweepy.StreamingClient):
     def on_error(self, errors):
         print(f"Error: {errors}")
 
+
 streaming_client = CustomStreamingClient(bearer_token)
-location_bbox = [74.557000, 32.912000, 75.342000, 33.76000]  # Coordinates here
+location_bbox = [74.72000, 32.650000, 74.930000, 32.80000]  # Coordinates here
 
 rule = f"bounding_box:[{location_bbox[0]} {location_bbox[1]} {location_bbox[2]} {location_bbox[3]}]"
 stream_rule = tweepy.StreamRule(value=rule)
